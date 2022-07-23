@@ -1,12 +1,13 @@
 import os
-import string
 
-from haiku_validation import get_haiku
-from syllabled_word import SyllabledWord
+from haiku_validation import get_haiku, find_haiku
 
 with open(os.path.join('data', 'matsuo_basho_frog.txt'), 'r') as file:
     text = ''.join(file.readlines())
 
-words = [SyllabledWord(word.strip(string.punctuation)) for word in text.split()]
+print(get_haiku(text))
 
-print(get_haiku(words))
+with open(os.path.join('data', 'input_01.txt'), 'r') as file:
+    text = ''.join(file.readlines())
+
+print(find_haiku(text))

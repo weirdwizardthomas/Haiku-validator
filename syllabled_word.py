@@ -11,3 +11,7 @@ class SyllabledWord:
 
     def __repr__(self):
         return f'{self.word}, syllables: {self.syllable_count}'
+
+    @property
+    def syllables(self):
+        return min(self.syllable_count)
