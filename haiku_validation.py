@@ -33,12 +33,7 @@ def find_valid_schema(words):
 
 
 def get_haiku(text):
-    if isinstance(text, str):
-        words = [SyllabledWord(word.strip(string.punctuation)) for word in text.split()]
-    elif isinstance(text, list) and isinstance(text[0], SyllabledWord):
-        words = text
-    else:
-        raise ValueError('Invalid argument type for "text", should be either str or list of SyllabledWord.')
+    words = sanitise_input(text)
 
     if not is_valid_schema(words):
         return None
@@ -54,6 +49,16 @@ def get_haiku(text):
 
     if not words:
         return '\n'.join(verses)
+
+
+def sanitise_input(text):
+    if isinstance(text, str):
+        words = [SyllabledWord(word.strip(string.punctuation)) for word in text.split()]
+    elif isinstance(text, list) and isinstance(text[0], SyllabledWord):
+        words = text
+    else:
+        raise ValueError('Invalid argument type for "text", should be either str or list of SyllabledWord.')
+    return words
 
 
 def find_first_valid_sequence(array, number=HAIKU_SYLLABLE_COUNT):
