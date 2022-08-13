@@ -1,7 +1,6 @@
-import os
 import unittest
 
-from haiku_validation import get_haiku
+from haiku_validator.haiku_validation import get_haiku
 
 
 class TestHaikuDetection(unittest.TestCase):
