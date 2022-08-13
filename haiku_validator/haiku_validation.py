@@ -1,6 +1,6 @@
 import string
 
-from syllabled_word import SyllabledWord
+from haiku_validator.syllabled_word import SyllabledWord
 
 HAIKU_SCHEMA = [5, 7, 5]
 HAIKU_SYLLABLE_COUNT = sum(HAIKU_SCHEMA)

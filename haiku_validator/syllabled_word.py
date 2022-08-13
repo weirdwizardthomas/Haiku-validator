@@ -1,4 +1,4 @@
-import syllable_counter
+from haiku_validator import syllable_counter
 
 
 class SyllabledWord:
